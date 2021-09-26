@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import Calculator from "./components/Calculator.vue";
+import Calculator from './components/Calculator.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Calculator,
   },
@@ -25,8 +25,8 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 30px; */
+  padding: 1em;
 }
 </style>

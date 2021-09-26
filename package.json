@@ -9,14 +9,20 @@
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-number-input-spinner": "^2.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "4.1.1",
     "@vue/cli-service": "4.1.1",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.0.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-vue": "^7.18.0",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.1.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
