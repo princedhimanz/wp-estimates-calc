@@ -10,7 +10,8 @@
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
     "vue": "^2.6.11",
-    "vue-number-input-spinner": "^2.2.0"
+    "vue-number-input-spinner": "^2.2.0",
+    "vue-simple-progress": "^1.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "4.1.1",
