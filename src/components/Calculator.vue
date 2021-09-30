@@ -9,7 +9,7 @@
           @click="activeCategory = category.name"
           :class="{active:activeCategory === category.name}"
         >
-          {{ category.name }}
+          {{ category.name }} - {{ getCategorySelectedItems(category.name) }}
         </li>
       </ul>
     </div>
@@ -18,13 +18,39 @@
       <div class="itemsContainer">
         <div v-for="item of activeCategoryItems" :key="item.name" class="item">
           <div>{{ item.name }}</div>
-          <NumberInputSpinner
+          <div class="numberInput">
+            <button
+            class="inputBtn"
+            @click="() => {
+              if((item.selected - 1) >= 0){
+                item.selected--
+                itemsCost -= item.cost
+              }
+            }"> - </button>
+            <div class="inputBox">
+              <input type="text" readonly v-model="item.selected" />
+              </div>
+            <button class="inputBtn" @click="() => {
+              item.selected++
+              itemsCost += item.cost
+              }"> + </button>
+            </div>
+          <!-- <integer-plusminus :min="0"
+                   :max="100"
+                   :step="1"
+                   :vertical="false"
+                   :disabled="false"
+                   formName="integer_plus_minus"
+                   v-model="item.selected"></integer-plusminus> -->
+
+          <!-- <NumberInputSpinner
             :min="0"
             :max="100"
             :step="1"
             :integerOnly="true"
-            v-model="yourVModel"
-          />
+            v-model="item.selected"
+            @change="test"
+          /> -->
         </div>
       </div>
     </div>
@@ -47,7 +73,7 @@
           </div>
       </div>
       <div class="d-flex">
-        <h3>Cost: ${{estimatedCost}}</h3>
+        <h3>Cost: ${{getTotalCost}}</h3>
         <button class="bookBtn">Book Now</button>
       </div>
     </footer>
@@ -55,13 +81,14 @@
 </template>
 
 <script>
-import NumberInputSpinner from 'vue-number-input-spinner';
+// import NumberInputSpinner from 'vue-number-input-spinner';
 import ProgressBar from 'vue-simple-progress';
+// import { IntegerPlusminus } from 'vue-integer-plusminus';
 
 export default {
   name: 'Calculator',
   components: {
-    NumberInputSpinner,
+    // NumberInputSpinner,
     ProgressBar,
   },
   computed: {
@@ -70,10 +97,24 @@ export default {
         (category) => category.name === this.activeCategory,
       )[0].items;
     },
+    getTotalCost() {
+      return this.estimatedCost < this.itemsCost ? this.itemsCost.toFixed(2) : this.estimatedCost;
+    },
+  },
+  methods: {
+    getCategorySelectedItems(categoryName) {
+      return this.categories.filter(
+        (category) => category.name === categoryName,
+      )[0].items.reduce((acc, item) => acc + item.selected, 0);
+    },
+    handleBtn(e) {
+      console.log(e);
+    },
   },
   data: () => ({
     activeCategory: 'Furniture',
     estimatedCost: 60.99,
+    itemsCost: 0,
     volume: 0,
     categories: [
       {
@@ -81,108 +122,178 @@ export default {
         items: [
           {
             name: '2 Seater Sofa',
+            selected: 0,
+            cost: 26.35,
           },
           {
             name: '3 Seater Sofa',
+            selected: 0,
+            cost: 39.49,
           },
           {
             name: 'Arm Chair',
+            selected: 0,
+            cost: 19.31,
           },
           {
             name: 'Bed, Double Complete',
+            selected: 0,
+            cost: 43.89,
           },
           {
             name: 'Bed, King-size complete',
+            selected: 0,
+            cost: 61.442,
           },
           {
             name: 'Bed, Single Complete',
+            selected: 0,
+            cost: 26.35,
           },
           {
             name: 'Bed Side Unit, Cabnet or Table',
+            selected: 0,
+            cost: 4.402,
           },
           {
             name: 'Blanket Box, Ottoman',
+            selected: 0,
+            cost: 8.773,
           },
           {
             name: 'Bookcase / Shelving Unit',
+            selected: 0,
+            cost: 35.124,
           },
           {
             name: 'Bunk Bed / Cabin Bed',
+            selected: 0,
+            cost: 43.896,
           },
           {
             name: 'Cabinet (display & kitchen), Bureau',
+            selected: 0,
+            cost: 35.123,
           },
           {
             name: 'Cabinet or filling cabinet, small',
+            selected: 0,
+            cost: 5.27,
           },
           {
             name: 'Chair, Kitchen, Dining or Wooden',
+            selected: 0,
+            cost: 4.402,
           },
           {
             name: 'Chaise Longue',
+            selected: 0,
+            cost: 43.896,
           },
           {
             name: 'Chest-of-Drawers, Tallboy',
+            selected: 0,
+            cost: 26.35,
           },
           {
             name: 'Dressing table',
+            selected: 0,
+            cost: 24.582,
           },
           {
             name: 'Electric Armchair',
+            selected: 0,
+            cost: 19.312,
           },
           {
             name: 'Electric Bed, double',
+            selected: 0,
+            cost: 43.896,
           },
           {
             name: 'Electric Bed, single',
+            selected: 0,
+            cost: 26.35,
           },
           {
             name: 'Filing cabinet, large',
+            selected: 0,
+            cost: 10.54,
           },
           {
             name: 'Grandfather clock',
+            selected: 0,
+            cost: 17.546,
           },
           {
             name: 'Large Desk',
+            selected: 0,
+            cost: 39.494,
           },
           {
             name: 'Mattress, double',
+            selected: 0,
+            cost: 24.88,
           },
           {
             name: 'Mattress, king-size',
+            selected: 0,
+            cost: 33.25,
           },
           {
             name: 'Mattress, single',
+            selected: 0,
+            cost: 19.30,
           },
           {
             name: 'Piano',
+            selected: 0,
+            cost: 41.26,
           },
           {
             name: 'Small Desk, Computer Table',
+            selected: 0,
+            cost: 21.948,
           },
           {
             name: 'TV / Hi-fi unit',
+            selected: 0,
+            cost: 17.546,
           },
           {
             name: 'Table small eg. Cane, coffee',
+            selected: 0,
+            cost: 4.402,
           },
           {
             name: 'Table, large e.g. dining',
+            selected: 0,
+            cost: 43.896,
           },
           {
             name: 'Table, medium e.g. kitchen',
+            selected: 0,
+            cost: 30.721,
           },
           {
             name: 'Vanity Seat',
+            selected: 0,
+            cost: 23.715,
           },
           {
             name: 'Wardrobe, double',
+            selected: 0,
+            cost: 68.478,
           },
           {
             name: 'Wardrobe, single',
+            selected: 0,
+            cost: 17.546,
           },
           {
             name: 'Welsh Dresser',
+            selected: 0,
+            cost: 44.20,
           },
         ],
       },
@@ -191,24 +302,38 @@ export default {
         items: [
           {
             name: 'Bric-a-Brac',
+            selected: 0,
+            cost: 32.49,
           },
           {
             name: 'Bric-a-Brac (smaill packet)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Cot',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'High Chair',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Large misc, eg carpet cleaner, large mirror, ladder, laundry basket, loose shelves',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Medium misc, eg tea trolley, ironing board, plant stand, coat or hat stand, small mirror, clothes horse',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'toys, box full',
+            selected: 0,
+            cost: 44.20,
           },
         ],
       },
@@ -217,9 +342,13 @@ export default {
         items: [
           {
             name: 'Small rug 3 x 6',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Carpet tiles, lino, carpet, flooring or underlay for standard room 12 x 12',
+            selected: 0,
+            cost: 44.20,
           },
         ],
       },
@@ -228,18 +357,28 @@ export default {
         items: [
           {
             name: 'Blanket, towel, throw, duvet cover',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Blinds (fabric), light or mid weight curtains',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Blinds (wood)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Pillow, pillow case',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Sheet',
+            selected: 0,
+            cost: 44.20,
           },
         ],
       },
@@ -248,27 +387,43 @@ export default {
         items: [
           {
             name: 'Bath (metal)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Bath (non-metal)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Shower Screen',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Shower equipment / tray',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Sink (ceramic)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Sink (metal)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Toilet',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Vanity Unit, including sink',
+            selected: 0,
+            cost: 44.20,
           },
 
         ],
@@ -278,57 +433,93 @@ export default {
         items: [
           {
             name: 'BBQ',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Chair (metal, plastic or wood)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Door (pvc)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Door (wood)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Gate (metal)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Gate (wood)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Lounger',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Paint (5|)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Patio Door',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Table (metal, plastic or wood)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Tiles (ceramic), per square metre',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Tool (large) i.e. spade, fork',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Tool (small) i.e. trowel',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Waterbutt',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Wheelbarrow',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Window (glazed)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Window (wood)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Worktop (kitchen)',
+            selected: 0,
+            cost: 44.20,
           },
         ],
       },
@@ -337,12 +528,18 @@ export default {
         items: [
           {
             name: 'Cooker, gas',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Fire, gas',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Hob, gas',
+            selected: 0,
+            cost: 44.20,
           },
         ],
       },
@@ -351,93 +548,153 @@ export default {
         items: [
           {
             name: 'Air Conditioner, Dehumidifier',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'American Style',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Computer, base unit',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Cooker hood',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Cooker electric',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Dishwasher',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Electric sewing maching',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Freezer, chest',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Freezer, free standing',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Freezer, undercounter',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Fridge-Freezer',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Gareden tools,electric (large) i.e. lawnmower, shredder',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Gareden tools,electric (small) i.e. strimmer, hedge cutter, garden vac',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Hair & Beauty elec i.e. hair dryer, foot massager, hair curlers, hair straignteners',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Hi-fi, separates (amplifier, cassette deck, CD player, radio, speakers)',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Hob, electric',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Lamp / Light',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Laptop',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Medium elec - bread machine, video camera, trouser press',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Microwave',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Musical instruments i.e. keyboard, organ',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'PC printers, scanners, shredder',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Photocopier',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Power tools i.e. drill, electric screwdriver',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'TV',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Tumble-Dryer',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Vacuum',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Video, DVD, Games Consoles, Digiboxes ',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Washing Machine',
+            selected: 0,
+            cost: 44.20,
           },
           {
             name: 'Wordprocessor, Electric Typewritter',
+            selected: 0,
+            cost: 44.20,
           },
 
         ],
@@ -450,7 +707,7 @@ export default {
 <style>
 .calculator {
   display: grid;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 320px auto;
   margin: 2em;
   gap: 2em;
 }
@@ -469,7 +726,7 @@ ul {
   box-shadow: 1px 1px 4px #ddd;
   color: #fff;
 }
-.categories li:hover, .categories li.active {
+.categories li:hover, .categories li.active,button.inputBtn:hover {
   background: #5592a2;
 }
 .itemsContainer {
@@ -479,10 +736,13 @@ ul {
   gap: 1em;
   padding: 0 2em;
   margin-bottom: 5em;
+  max-height: calc( 100vh - 13em );
+  overflow-y:scroll;
 }
 .item {
   padding: 0.5em;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 100px;
   justify-content: space-between;
   align-items: center;
 }
@@ -529,4 +789,28 @@ ul {
   font-size: 18px !important;
   color: #fff !important;
 }
+.numberInput {
+    display: grid;
+    grid-template-columns: 25px auto 25px;
+    width: 100%;
+}
+.inputBox input{
+  width:100%;
+  height: 100%;
+    border: 1px solid #69b2c5;
+    text-align: center;
+    outline:none;
+}
+button.inputBtn {
+    height: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 25px;
+    border: 0;
+    background: #69b2c5;
+    color: #fff;
+    cursor: pointer;
+
+}
+
 </style>
