@@ -102,46 +102,85 @@ export default {
             name: 'Blanket Box, Ottoman',
           },
           {
-            name: 'Bookcase/Shelving Unit',
+            name: 'Bookcase / Shelving Unit',
           },
           {
             name: 'Bunk Bed / Cabin Bed',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Cabinet (display & kitchen), Bureau',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Cabinet or filling cabinet, small',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Chair, Kitchen, Dining or Wooden',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Chaise Longue',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Chest-of-Drawers, Tallboy',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Dressing table',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Electric Armchair',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Electric Bed, double',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Electric Bed, single',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Filing cabinet, large',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Grandfather clock',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Large Desk',
+          },
+          {
+            name: 'Mattress, double',
+          },
+          {
+            name: 'Mattress, king-size',
+          },
+          {
+            name: 'Mattress, single',
+          },
+          {
+            name: 'Piano',
+          },
+          {
+            name: 'Small Desk, Computer Table',
+          },
+          {
+            name: 'TV / Hi-fi unit',
+          },
+          {
+            name: 'Table small eg. Cane, coffee',
+          },
+          {
+            name: 'Table, large e.g. dining',
+          },
+          {
+            name: 'Table, medium e.g. kitchen',
+          },
+          {
+            name: 'Vanity Seat',
+          },
+          {
+            name: 'Wardrobe, double',
+          },
+          {
+            name: 'Wardrobe, single',
+          },
+          {
+            name: 'Welsh Dresser',
           },
         ],
       },
@@ -149,10 +188,25 @@ export default {
         name: 'Household',
         items: [
           {
-            name: '2 Seater Sofa',
+            name: 'Bric-a-Brac',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Bric-a-Brac (smaill packet)',
+          },
+          {
+            name: 'Cot',
+          },
+          {
+            name: 'High Chair',
+          },
+          {
+            name: 'Large misc, eg carpet cleaner, large mirror, ladder, laundry basket, loose shelves',
+          },
+          {
+            name: 'Medium misc, eg tea trolley, ironing board, plant stand, coat or hat stand, small mirror, clothes horse',
+          },
+          {
+            name: 'toys, box full',
           },
         ],
       },
@@ -160,10 +214,10 @@ export default {
         name: 'Carpent & Flooring',
         items: [
           {
-            name: '2 Seater Sofa',
+            name: 'Small rug 3 x 6',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Carpet tiles, lino, carpet, flooring or underlay for standard room 12 x 12',
           },
         ],
       },
@@ -171,10 +225,19 @@ export default {
         name: 'Bedding & Window Dressing',
         items: [
           {
-            name: '2 Seater Sofa',
+            name: 'Blanket, towel, throw, duvet cover',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Blinds (fabric), light or mid weight curtains',
+          },
+          {
+            name: 'Blinds (wood)',
+          },
+          {
+            name: 'Pillow, pillow case',
+          },
+          {
+            name: 'Sheet',
           },
         ],
       },
@@ -182,11 +245,199 @@ export default {
         name: 'Bathroom',
         items: [
           {
-            name: '2 Seater Sofa',
+            name: 'Bath (metal)',
           },
           {
-            name: '2 Seater Sofa',
+            name: 'Bath (non-metal)',
           },
+          {
+            name: 'Shower Screen',
+          },
+          {
+            name: 'Shower equipment / tray',
+          },
+          {
+            name: 'Sink (ceramic)',
+          },
+          {
+            name: 'Sink (metal)',
+          },
+          {
+            name: 'Toilet',
+          },
+          {
+            name: 'Vanity Unit, including sink',
+          },
+
+        ],
+      },
+      {
+        name: 'DIY & Garden',
+        items: [
+          {
+            name: 'BBQ',
+          },
+          {
+            name: 'Chair (metal, plastic or wood)',
+          },
+          {
+            name: 'Door (pvc)',
+          },
+          {
+            name: 'Door (wood)',
+          },
+          {
+            name: 'Gate (metal)',
+          },
+          {
+            name: 'Gate (wood)',
+          },
+          {
+            name: 'Lounger',
+          },
+          {
+            name: 'Paint (5|)',
+          },
+          {
+            name: 'Patio Door',
+          },
+          {
+            name: 'Table (metal, plastic or wood)',
+          },
+          {
+            name: 'Tiles (ceramic), per square metre',
+          },
+          {
+            name: 'Tool (large) i.e. spade, fork',
+          },
+          {
+            name: 'Tool (small) i.e. trowel',
+          },
+          {
+            name: 'Waterbutt',
+          },
+          {
+            name: 'Wheelbarrow',
+          },
+          {
+            name: 'Window (glazed)',
+          },
+          {
+            name: 'Window (wood)',
+          },
+          {
+            name: 'Worktop (kitchen)',
+          },
+        ],
+      },
+      {
+        name: 'Gas Appliances',
+        items: [
+          {
+            name: 'Cooker, gas',
+          },
+          {
+            name: 'Fire, gas',
+          },
+          {
+            name: 'Hob, gas',
+          },
+        ],
+      },
+      {
+        name: 'Electrical',
+        items: [
+          {
+            name: 'Air Conditioner, Dehumidifier',
+          },
+          {
+            name: 'American Style',
+          },
+          {
+            name: 'Computer, base unit',
+          },
+          {
+            name: 'Cooker hood',
+          },
+          {
+            name: 'Cooker electric',
+          },
+          {
+            name: 'Dishwasher',
+          },
+          {
+            name: 'Electric sewing maching',
+          },
+          {
+            name: 'Freezer, chest',
+          },
+          {
+            name: 'Freezer, free standing',
+          },
+          {
+            name: 'Freezer, undercounter',
+          },
+          {
+            name: 'Fridge-Freezer',
+          },
+          {
+            name: 'Gareden tools,electric (large) i.e. lawnmower, shredder',
+          },
+          {
+            name: 'Gareden tools,electric (small) i.e. strimmer, hedge cutter, garden vac',
+          },
+          {
+            name: 'Hair & Beauty elec i.e. hair dryer, foot massager, hair curlers, hair straignteners',
+          },
+          {
+            name: 'Hi-fi, separates (amplifier, cassette deck, CD player, radio, speakers)',
+          },
+          {
+            name: 'Hob, electric',
+          },
+          {
+            name: 'Lamp / Light',
+          },
+          {
+            name: 'Laptop',
+          },
+          {
+            name: 'Medium elec - bread machine, video camera, trouser press',
+          },
+          {
+            name: 'Microwave',
+          },
+          {
+            name: 'Musical instruments i.e. keyboard, organ',
+          },
+          {
+            name: 'PC printers, scanners, shredder',
+          },
+          {
+            name: 'Photocopier',
+          },
+          {
+            name: 'Power tools i.e. drill, electric screwdriver',
+          },
+          {
+            name: 'TV',
+          },
+          {
+            name: 'Tumble-Dryer',
+          },
+          {
+            name: 'Vacuum',
+          },
+          {
+            name: 'Video, DVD, Games Consoles, Digiboxes ',
+          },
+          {
+            name: 'Washing Machine',
+          },
+          {
+            name: 'Wordprocessor, Electric Typewritter',
+          },
+
         ],
       },
     ],
