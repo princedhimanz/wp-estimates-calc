@@ -20,7 +20,7 @@
           <div>{{ item.name }}</div>
           <NumberInputSpinner
             :min="0"
-            :max="10"
+            :max="100"
             :step="1"
             :integerOnly="true"
             v-model="yourVModel"
@@ -36,18 +36,18 @@
           <div style="width:300px"><progress-bar
           size="huge"
           val="60"
-          text="69m"
+          text="69 ㎥"
           bar-color="#69b2c5"
-          bar-border-radius="20"
+          :bar-border-radius="20"
           text-position="middle"
-          font-size="16"
+          :font-size="16"
           />
           </div>
           <h4>Max</h4>
           </div>
       </div>
       <div class="d-flex">
-        <h3>Cost: $123</h3>
+        <h3>Cost: ${{estimatedCost}}</h3>
         <button class="bookBtn">Book Now</button>
       </div>
     </footer>
@@ -73,6 +73,8 @@ export default {
   },
   data: () => ({
     activeCategory: 'Furniture',
+    estimatedCost: 60.99,
+    volume: 0,
     categories: [
       {
         name: 'Furniture',
@@ -274,5 +276,6 @@ ul {
 }
 .vue-simple-progress-text{
   font-size: 18px !important;
+  color: #fff !important;
 }
 </style>
