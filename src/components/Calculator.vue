@@ -63,7 +63,7 @@
           size="huge"
           val="60"
           text="69 ㎥"
-          bar-color="#69b2c5"
+          bar-color="#3353e9"
           :bar-border-radius="20"
           text-position="middle"
           :font-size="16"
@@ -717,7 +717,7 @@ ul {
   margin: 2em 0;
 }
 .categories li {
-  background: #69b2c5;
+  background: #3353E9;
   padding: 1em 2em;
   margin-top: 5px;
   font-weight: 600;
@@ -726,8 +726,8 @@ ul {
   box-shadow: 1px 1px 4px #ddd;
   color: #fff;
 }
-.categories li:hover, .categories li.active,button.inputBtn:hover {
-  background: #5592a2;
+.categories li:hover, .categories li.active {
+  background: #243ba5;
 }
 .itemsContainer {
   margin: 2em 0;
@@ -747,7 +747,7 @@ ul {
   align-items: center;
 }
 .footer {
-  background: #ddd;
+  background: #F7C40D;
   height: 5em;
   width: 100%;
   display: block;
@@ -765,18 +765,18 @@ ul {
 }
 .bookBtn {
   padding: 0.75em 2em;
-  border: 2px solid #387e90;
+  border: 2px solid #3353e9;
   font-size: 18px;
   font-weight: bold;
   border-radius: 5px;
-  color: #244f5a;
-  background: #fff;
+  color: #fff;
+  background: #3353e9;
   margin: 0 2em;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 .bookBtn:hover {
-  background: #387e90;
+  background: #4664e9;
   color:#fff
 }
 .progressBar{
@@ -797,7 +797,7 @@ ul {
 .inputBox input{
   width:100%;
   height: 100%;
-    border: 1px solid #69b2c5;
+    border: 1px solid #F7C40D;
     text-align: center;
     outline:none;
 }
@@ -807,10 +807,13 @@ button.inputBtn {
     font-weight: bold;
     width: 25px;
     border: 0;
-    background: #69b2c5;
+    background: #F7C40D;
     color: #fff;
     cursor: pointer;
 
+}
+button.inputBtn:hover {
+  background: #cfa50a;
 }
 
 </style>
