@@ -710,6 +710,7 @@ export default {
   grid-template-columns: 320px auto;
   margin: 2em;
   gap: 2em;
+  background: #fff;
 }
 
 ul {
@@ -736,7 +737,7 @@ ul {
   gap: 1em;
   padding: 0 2em;
   margin-bottom: 5em;
-  max-height: calc( 100vh - 13em );
+  max-height: calc( 100vh - 15em );
   overflow-y:scroll;
 }
 .item {
