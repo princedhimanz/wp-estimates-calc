@@ -56,7 +56,9 @@
     </div>
     <footer class="footer">
       <div class="d-flex">
-        <h2>Logo Here</h2>
+        <div style="width: 100%">
+          <img src="logo.png" style="max-width:100%" />
+        </div>
         <div class="progressBar d-flex">
           <h4>Capacity</h4>
           <div style="width:300px"><progress-bar
@@ -74,7 +76,7 @@
       </div>
       <div class="d-flex">
         <h3>Cost: ${{getTotalCost}}</h3>
-        <button class="bookBtn">Book Now</button>
+        <button class="bookBtn" @click="handleBtn">Book Now</button>
       </div>
     </footer>
   </div>
@@ -107,8 +109,8 @@ export default {
         (category) => category.name === categoryName,
       )[0].items.reduce((acc, item) => acc + item.selected, 0);
     },
-    handleBtn(e) {
-      console.log(e);
+    handleBtn() {
+      window.location = `http://www.readingrubbishclearance.co.uk/payment-page/?amount=${this.estimatedCost}&item=readingrubbishclearance`;
     },
   },
   data: () => ({
