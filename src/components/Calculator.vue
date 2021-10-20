@@ -56,7 +56,7 @@
     </div>
     <footer class="footer">
       <div class="d-flex">
-        <div style="width: 100%">
+        <div style="width: 250px">
           <img src="logo.png" style="max-width:100%" />
         </div>
         <div class="progressBar d-flex">
