@@ -110,7 +110,8 @@ export default {
       )[0].items.reduce((acc, item) => acc + item.selected, 0);
     },
     handleBtn() {
-      window.location = `http://www.readingrubbishclearance.co.uk/booking-form/?amount=${this.estimatedCost}&item=readingrubbishclearance`;
+      const url = `http://www.readingrubbishclearance.co.uk/booking-form/?amount=${this.estimatedCost}&item=readingrubbishclearance`;
+      window.open(url, '_blank').focus();
     },
   },
   data: () => ({
