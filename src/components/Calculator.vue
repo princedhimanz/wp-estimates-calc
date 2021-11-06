@@ -901,7 +901,8 @@ ul {
 }
 .vue-simple-progress-text{
   font-size: 18px !important;
-  color: #fff !important;
+  font-weight: bold !important;
+  /* color: #fff !important; */
 }
 .numberInput {
     display: grid;
