@@ -1,5 +1,39 @@
 <template>
   <div class="calculator">
+    <div class="modal" v-if="modal" tabindex="0">
+      <div class="modalCont" @focusout="() => modal = false"
+        tabindex="0">
+        <div class="card">
+          <h2>Man & Van</h2>
+          <p style="font-size:18px;margin-top:5px;">(Call Out Fee)</p>
+          <img src="/man-van.png" style="max-width:100%" />
+          <h3>£60.99</h3>
+          <br />
+           <button class="bookBtn" @click="handleBtn">Book Now</button>
+        </div>
+         <div class="card">
+            <h2>Skips</h2>
+             <p style="font-size:18px;margin-top:5px;">(4 Cubic Yards)</p>
+             <img src="/skip.png" style="max-width:100%" />
+             <h3>£254.00</h3>
+             <br />
+              <button class="bookBtn" @click="handleBtn">Book Now</button>
+         </div>
+          <div class="card">
+             <h2>Skip Bags</h2>
+              <p style="font-size:18px;margin-top:5px;">(1 Small)</p>
+              <br />
+              <img src="/skip-bag.png" style="max-width:100%" />
+              <br />
+              <br />
+              <br />
+              <br />
+              <h3>£119.99</h3>
+              <br />
+               <button class="bookBtn" @click="handleBtn">Book Now</button>
+          </div>
+      </div>
+    </div>
     <div class="categories">
       <h3>1.Choose A Category</h3>
       <ul>
@@ -78,7 +112,7 @@
       </div>
       <div class="d-flex">
         <h3>Cost: £{{getTotalCost}}</h3>
-        <button class="bookBtn" @click="handleBtn">Book Now</button>
+        <button class="bookBtn" @click="modal = true">Book Now</button>
       </div>
     </footer>
   </div>
@@ -121,6 +155,7 @@ export default {
     estimatedCost: 60.99,
     itemsCost: 0,
     volume: 0,
+    modal: false,
     categories: [
       {
         name: 'Furniture',
@@ -929,6 +964,34 @@ button.inputBtn {
 }
 button.inputBtn:hover {
   background: #cfa50a;
+}
+.modal{
+  padding:2em;
+  position: fixed;
+  width:100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0,0.2);
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  z-index:9;
+}
+.modalCont{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:20px;
+  width:70%;
+  height:90%;
+  max-height:600px;
+  background: #fff;
+  padding: 2em;
+}
+.card{
+  text-align: center;
+  width:100%;
+    box-shadow: 1px 1px 5px 2px #ddd;
+    padding: 1em;
 }
 
 </style>
